@@ -1,0 +1,31 @@
+create database Mydb;
+show databases;
+use Mydb;
+create table Employee(EmpId int primary key,EmpFirstName varchar(23),EmpLastName varchar(23),EmpDep varchar(23),EmpAge int);
+show tables;
+desc Employee;
+insert into Employee(EmpId,EmpFirstName,EmpLastName,EmpDep,EmpAge)values(1,"raj","kavin","manager",25);
+insert into Employee(EmpId,EmpFirstName,EmpLastName,EmpDep,EmpAge)values(2,"priya","Ram","developer",30);
+insert into Employee(EmpId,EmpFirstName,EmpLastName,EmpDep,EmpAge)values(3,"raja","kamali","junior",27);
+insert into Employee(EmpId,EmpFirstName,EmpLastName,EmpDep,EmpAge)values(4,"prethi","Raman","py-developer",35);
+ select*from Emp;
+ update Employee set EmpAge=45 where EmpId=1;
+ update Employee set EmpFirstName="Sri",EmpDep="Teacher" where EmpId=1;
+ /*table rename*/
+ alter table Employee rename to emp;
+ /*Adding new column*/
+ alter table emp add EmpGender varchar(10);
+ update emp set EmpGender="Male" where EmpId=1;
+ alter table emp add Emobloo varchar(10);
+ alter table emp drop column EmpGender;
+ alter table emp rename column EmpAge to Age;
+ alter table emp change EmpDep Dep varchar(20);
+alter table emp add Empsalary varchar(10);
+update emp set Empsalary=25000 where EmpId=1;
+update emp set Empsalary=30000 where EmpId=2;
+update emp set Empsalary=15000 where EmpId=3;
+update emp set Empsalary=20000 where EmpId=4;
+update emp set dep='manager' where EmpId=2;
+update emp set dep='manager' where EmpId=3;
+select Dep, count(*) AS total_employee, sum(Empsalary) as total_salary, avg(Empsalary) as average_salary from Emp Group by Dep having count(*)>=2;
+select distinct dep from emp; 
