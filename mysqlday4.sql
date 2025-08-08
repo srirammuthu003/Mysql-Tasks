@@ -1,0 +1,10 @@
+create database dhoni;
+use dhoni;
+create table empl(empname varchar(20),empid  int,depid int);
+create table depr(depid int,depname varchar(20));
+insert into empl(empname,empid,depid) values ("sriram",1,10),("praveen",2,20),("shakil",3,30),("vishnu",4,40);
+insert into depr(depid,depname) values (10,"cse"),(20,"ece"),(35,"IT");
+select*from empl;
+select*from depr;
+select e.empname,d.depname from empl e left join depr d on e.depid=d.depid;
+select e.empname,d.depname from empl e right join depr d on e.depid=d.depid;
